@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "StockExServer";
+
+package stock;
+
+service Stock {
+    rpc GetStockPrice (StockPriceRequest) returns (stream StockPriceResponse);
+}
+
+message StockPriceRequest {
+    string symbol = 1;
+    string apiKey = 2;
+}
+
+message StockPriceResponse {
+    string data = 1;
+}
